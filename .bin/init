@@ -1,0 +1,5 @@
+git clone --bare git@github.com:kulti/myconfigs.git ./.cfg.git
+
+alias config='/usr/bin/git --git-dir=$HOME/.cfg.git/ --work-tree=$HOME'
+
+config checkout
