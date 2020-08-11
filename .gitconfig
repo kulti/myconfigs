@@ -1,0 +1,32 @@
+[user]
+	name = Aleksey Bakin
+	email = alexey.bakin@gmail.com
+[push]
+	default = simple
+[merge]
+	tool = meld
+[core]
+  filemode = true
+	pager = cat
+[alias]
+	st = status
+	sdiff = !git diff && git submodule foreach 'git diff'
+	cloner = clone --recursive
+	rbi = !sh -c 'git rebase -i --autosquash $(git merge-base --fork-point $1)' -
+[branch]
+	autosetuprebase = always
+[branch "master"]
+	rebase = true
+[status]
+	submodulesummary = 1
+[fetch]
+	recurseSubmodules = false
+[mergetool "meld"]
+	path = git-meld-merge
+[pull]
+	rebase = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge --skip -- %f
+	process = git-lfs filter-process --skip
+	required = true
