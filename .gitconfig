@@ -12,6 +12,7 @@
 	st = status
 	sdiff = !git diff && git submodule foreach 'git diff'
 	cloner = clone --recursive
+	pushd = push --set-upstream origin HEAD
 	rbi = !sh -c 'git rebase -i --autosquash $(git merge-base --fork-point $1)' -
 [branch]
 	autosetuprebase = always
@@ -27,6 +28,6 @@
 	rebase = true
 [filter "lfs"]
 	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge --skip -- %f
-	process = git-lfs filter-process --skip
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
 	required = true
